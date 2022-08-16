@@ -16,12 +16,16 @@ use Illuminate\Auth\Events\Login;
 |
 */
 
+
+Route::any('register',[AdminAuthController::class,'register'])->name('register');
+/*Route::any('c',[CategoryCtrl::class,'register'])->name('register');*/
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/login', [AdminAuthController::class,'login']);
-Route::get('/register',[AdminAuthController::class, 'register']);
+/*Route::get('/register',[AdminAuthController::class, 'register']);*/
 
 
 Route::get('/existing.blade.php', function () {

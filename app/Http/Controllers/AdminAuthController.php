@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class AdminAuthController extends Controller
 {
-    function login(){
-        echo "Hello";
-    }
-    function register(){
+
+
+    public function register(){
         return view('admin.newAdmin');
     }
 
-    function create(Request $request){
+    public function login(){
+        echo "Hello";
+    }
+
+    public function create(Request $request){
         return $request->input();
     }
 }
