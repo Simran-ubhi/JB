@@ -1,0 +1,105 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+header{
+    display: float;
+    background-color: rgb(255, 187, 0);
+    height: 5rem;
+    padding: 1rem;
+    margin-bottom: 10px;
+}
+header h1{
+    margin: 1.1%;
+    text-align: center;
+}
+header button{
+    border-style: none;
+    background-color: transparent;
+    float: right;
+}
+header button a{
+    font-size: large;
+    color: black;
+    text-decoration: none;
+}
+header h1{
+    font-size: 2.5em;
+}
+.search-form{
+    display: flex;
+    align-items: center;
+    padding: 6% 10%;
+    justify-content: center;
+}
+.search-form form .search-field{
+    height: 1.5rem;
+    width: 30rem;
+    border-top: white;
+    border-left: white;
+    border-right: white;
+}
+
+.search-form form .search-button{
+   background-color: white;
+   border-radius: 30px;
+   width: 5rem;
+   height: 1.8rem;
+}
+
+section{
+    display: block;
+    text-align: center;
+}
+
+.info-save{
+    width: 12rem;
+    height: 3rem;
+    color:white;
+    background-color: rgb(54, 151, 9);
+    border-radius: 10px;
+    border-color:rgb(54, 151, 9);
+}
+
+
+
+
+.newcust-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newcust-form button{
+        margin-left: 20%;
+        width: 12rem;
+        height: 3rem;
+        color:white;
+        background-color: rgb(54, 151, 9);
+        border-radius: 10px;
+        border-color:rgb(54, 151, 9);
+}
+
+
+.sale-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sale-form form button{
+        margin-left: 20%;
+        width: 12rem;
+        height: 3rem;
+        color:white;
+        background-color: rgb(54, 151, 9);
+        border-radius: 10px;
+        border-color:rgb(54, 151, 9);
+}
+
+label{
+    margin: 0.5rem;
+}
+input{
+    margin: 0.5rem;
+}
