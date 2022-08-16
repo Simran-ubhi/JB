@@ -20,8 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', [AdminAuthController::class,'login']);
-Route::get('register',[AdminAuthController::class, 'register']);
+Route::get('/login', [AdminAuthController::class,'login']);
+Route::get('/register',[AdminAuthController::class, 'register']);
 Route::get('create',[AdminAuthController::class, 'create'])->name('admin.create');
 
 
