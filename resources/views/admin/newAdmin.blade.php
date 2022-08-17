@@ -47,7 +47,7 @@
         <br>
         <label for="admname">Admin Name:</label>
         <input type="text" name="admname" id="">
-        <p>@error('admname')**{{$message}}@enderror</p>
+        <p>@error('name')**{{$message}}@enderror</p>
         <br>
         <label for="admcontact">Admin Contact:</label>
         <input type="text" name="admcontact" id="">  

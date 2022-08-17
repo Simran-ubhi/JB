@@ -18,8 +18,12 @@ class AdminAuthController extends Controller
     }
 
     public function create(Request $request){
+        
+        
+
         //validate
         $request->validate([
+            'admtype' => 'required',
             'admname' => 'required',
             'admcontact' => 'required|integer',
             'admemail' => 'required|email',
@@ -30,7 +34,8 @@ class AdminAuthController extends Controller
 
         //insert
         $admin = new Admin;
-        $admin->Name = $request->Name;
+        $admin->Category = $request->Category;
+        $admin->admname = $request->admname;
         $admin->Email = $request->Email;
         $admin->Phone_Number = $request->Phone_Number;
         $admin->Password = $request->Password;
@@ -44,6 +49,5 @@ class AdminAuthController extends Controller
         } else {
             return back()->with('Fail','Something went wrong');
         }
-
     }
 }
