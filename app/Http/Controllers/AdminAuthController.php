@@ -29,9 +29,6 @@ class AdminAuthController extends Controller
             'Address'=>'required'
         ]);
         $create = Admin::create($request->all());
-
-
-
         if($create){
             return back()->with('Success','New admin created');
         } else {
