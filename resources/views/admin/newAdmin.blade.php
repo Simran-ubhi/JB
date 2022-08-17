@@ -40,9 +40,15 @@
         <input type="text" name="Name" id="">
         <p>@error('Name')**{{$message}}@enderror</p>
         <br>
+<<<<<<< HEAD
         <label for="Phone_Number">Admin Contact:</label>
         <input type="text" name="Phone_Number" id="">
         <p>@error('Phone_Number')**{{$message}}@enderror</p>
+=======
+        <label for="admname">Admin Name:</label>
+        <input type="text" name="admname" id="">
+        <p>@error('name')**{{$message}}@enderror</p>
+>>>>>>> 9df8bc78ba48bdde235a54812caf790ac94f31cf
         <br>
         <label for="Email">Admin E-mail:</label>
         <input type="text" name="Email" id="">

@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
+
         Schema::create('admins', function (Blueprint $table) {
             $table->id('AdminID');
-            $table->text('Name');
+            $table->text('Category');
+            $table->text('Name');            
             $table->text('Email');
             $table->integer('Phone_Number');
             $table->text('Password')->md5;
