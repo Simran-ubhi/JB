@@ -10,7 +10,7 @@
        <div class= "auth">
 
        <button>
-       <a href="">Admin Login</a>
+       <a href="{{ route('login') }}">Admin Login</a>
        <a href="">|</a>
         <a href="{{ route('register') }}">Add Admin</a>
        </button>

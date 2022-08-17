@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id('AdminID');
             $table->text('Name');
             $table->text('Email');
-            $table->integer('Phone Number');
+            $table->integer('Phone_Number');
             $table->text('Password')->md5;
-            $table->date('Date of Birth');
+            $table->date('D_O_B');
             $table->text('Address');
             $table->timestamps();
         });

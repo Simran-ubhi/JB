@@ -34,7 +34,7 @@
         <input type="text" name="username" id="uname">
         <br>
         <br>
-        <label for="logpin">Login Pin:</label>
+        <label for="logpass"> Password:</label>
         <input type="password" id="upass"> 
         <br>
         <br>

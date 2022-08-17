@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Admin;
 class AdminAuthController extends Controller
 {
 
@@ -14,10 +14,36 @@ class AdminAuthController extends Controller
     }
 
     public function login(){
-        echo "Hello";
+        return view('login');
     }
 
     public function create(Request $request){
-        return $request->input();
+        //validate
+        $request->validate([
+            'admname' => 'required',
+            'admcontact' => 'required|integer',
+            'admemail' => 'required|email',
+            'adminPassword' =>'required',
+            'adm-DOB' =>'required',
+            'admadrss'=>'required'
+        ]);
+
+        //insert
+        $admin = new Admin;
+        $admin->Name = $request->Name;
+        $admin->Email = $request->Email;
+        $admin->Phone_Number = $request->Phone_Number;
+        $admin->Password = $request->Password;
+        $admin->D_O_B = $request->D_O_B;
+        $admin->Address = $request->Address;
+
+        $create = $admin->create();
+
+        if($create){
+            return back()->with('Success','New admin created');
+        } else {
+            return back()->with('Fail','Something went wrong');
+        }
+
     }
 }

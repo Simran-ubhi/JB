@@ -17,14 +17,17 @@ use Illuminate\Auth\Events\Login;
 */
 
 
-Route::any('register',[AdminAuthController::class,'register'])->name('register');
+Route::get('register',[AdminAuthController::class,'register'])->name('register');
 /*Route::any('c',[CategoryCtrl::class,'register'])->name('register');*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [AdminAuthController::class,'login']);
+Route::post('create',[AdminAuthController::class,'create'])->name('create');
+
+
+Route::get('login', [AdminAuthController::class,'login'])->name('login');
 /*Route::get('/register',[AdminAuthController::class, 'register']);*/
 
 
