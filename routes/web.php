@@ -28,15 +28,15 @@ Route::post('create',[AdminAuthController::class,'create'])->name('create');
 
 
 Route::get('login', [AdminAuthController::class,'login'])->name('login');
-/*Route::get('/register',[AdminAuthController::class, 'register']);*/
+Route::get('adminDashboard',[AdminAuthController::class, 'register'])->name('Dashboard');
 
 
 Route::get('/existing.blade.php', function () {
     return view('existing');
 });
 
-Route::get('/newclient.blade.php', function () {
-    return view('newclient');
+Route::get('newclient.blade.php', function () {
+    return view('employee/newclient');
 });
 
 Route::get('/newEmp.blade.php', function () {

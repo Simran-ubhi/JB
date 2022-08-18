@@ -14,7 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->id('ClientID');
+            $table->id('cname');
+            $table->id('contact');
+            $table->id('referred_by');
+            $table->id('ticket');
+            $table->id('paid_ticket');
+            $table->id('paid_food');
+            $table->id('discount');
+            $table->id('payable_amount');
+            $table->id('payment_method');
+            $table->id('referrece_ID');
             $table->timestamps();
         });
     }

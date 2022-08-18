@@ -14,6 +14,7 @@ class Admin extends Model
         public $timestamps = false;
         protected $fillable = [
             'Name',
+            'Category',
             'Email',
             'Phone_Number',
             'Password',
