@@ -16,9 +16,9 @@
        </button>
 
        <button >
-        <a href="../newEmp.blade.php">Register New Employee</a>
+        <a href="{{ route('Eregister') }}">Register New Employee</a>
         <a href="">|</a>
-        <a href="../empLogin.blade.php">Employee Login</a>
+        <a href="{{ route('Elogin') }}">Employee Login</a>
         </button>
        </div>
 </header>

@@ -14,7 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('sales', function (Blueprint $table) {
-            $table->id();
+            $table->id('saleID');
+            $table->text('name');
+            $table->integer('contact_number');
+            $table->string('vouchers');
+            $table->integer('cost');
+            $table->integer('discount');
+            $table->integer('total_amount');
             $table->timestamps();
         });
     }

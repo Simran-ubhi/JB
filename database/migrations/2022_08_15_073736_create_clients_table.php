@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Employees;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,16 +15,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->id('cname');
-            $table->id('contact');
-            $table->id('referred_by');
-            $table->id('ticket');
-            $table->id('paid_ticket');
-            $table->id('paid_food');
-            $table->id('discount');
-            $table->id('payable_amount');
-            $table->id('payment_method');
-            $table->id('referrece_ID');
+            $table->id('clientID');
+            $table->string('cname');
+            $table->integer('contact');
+            $table->unsignedBigInteger('empID')->unsigned(); 
+            $table->foreign('empID')->references('empID')->on('employees'); 
+            $table->text('ticket');
+            $table->string('paid_ticket');
+            $table->string('paid_food');
+            $table->integer('discount');
+            $table->integer('payable_amount');
+            $table->string('payment_method');
+            $table->string('referrece_ID');
             $table->timestamps();
         });
     }

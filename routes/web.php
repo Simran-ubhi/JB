@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\clientController;
+use App\Http\Controllers\empController;
+use App\Http\Controllers\salesController;
 use App\Models\Admin;
 use Illuminate\Auth\Events\Login;
 
@@ -16,49 +19,34 @@ use Illuminate\Auth\Events\Login;
 |
 */
 
-
-Route::get('register',[AdminAuthController::class,'register'])->name('register');
-/*Route::any('c',[CategoryCtrl::class,'register'])->name('register');*/
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('create',[AdminAuthController::class,'create'])->name('create');
+// Admin CRUD
+Route::get('register',[AdminAuthController::class,'Admregister'])->name('register');
+Route::post('AdminCreate',[AdminAuthController::class,'Admcreate'])->name('create');
+Route::get('login', [AdminAuthController::class,'Admlogin'])->name('login');
+Route::get('adminDashboard',[AdminAuthController::class, 'Admdashboard'])->name('Dashboard');
 
 
-Route::get('login', [AdminAuthController::class,'login'])->name('login');
-Route::get('adminDashboard',[AdminAuthController::class, 'register'])->name('Dashboard');
+// Employee CRUD
+Route::get('newEmp',[empController::class,'Eregister'])->name('Eregister');
+Route::any('EmployeeCreate',[empController::class,'create'])->name('Ecreate');
+Route::get('emplog',[empController::class,'Elogin'])->name('Elogin');
+Route::get('profile',[empController::class,'profile'])->name('profile');
+
+//Sale CRUD
+Route::get('newsale',[salesController::class,'newsale'])->name('newSale');
+Route::any('addsale',[salesController::class,'addsale'])->name('addsale');
+
+
+//client CRUD
+Route::get('addclient',[clientController::class,'clientform'])->name('addclient');
+
 
 
 Route::get('/existing.blade.php', function () {
     return view('existing');
 });
 
-Route::get('newclient.blade.php', function () {
-    return view('employee/newclient');
-});
-
-Route::get('/newEmp.blade.php', function () {
-    return view('admin/newEmp');
-});
-
-Route::get('/empLogin.blade.php', function () {
-    return view('employee/empLogin');
-});
-
-Route::get('/profile.blade.php', function () {
-    return view('employee/profile');
-});
-
-Route::get('/registerAdmin',function(){
-    return view('admin/newAdmin');
-});
-
-Route::get('/newsale',function(){
-    return view('employee/newSale');
-});
-
-Route::get('/newcust',function(){
-    return view('employee/newCust');
-});

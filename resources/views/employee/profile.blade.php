@@ -58,8 +58,8 @@
     </div>
 
     <div class = "emp-actions">
-        <button class="one">Add New Customer</button>
-        <button class="2">Add New Sale</button>
+        <button class="one" >Add New Customer</button>
+        <button class="2" href="{{route('newSale')}}">Add New Sale</button>
         <button class="3">Customer Report</button>
         <button class="4">Sales Report</button>
         

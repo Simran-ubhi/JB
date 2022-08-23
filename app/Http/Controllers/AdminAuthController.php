@@ -5,19 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+
 class AdminAuthController extends Controller
 {
-    public function register(){
+    public function Admregister(){
         return view('admin.newAdmin');
     }
 
-    public function login(){
+    public function Admlogin(){
         return view('login');
     }
 
-    public function create(Request $request){
+    public function Admdashboard(){
+        return view('admin.dashboard');
+    }
 
-
+    public function Admcreate(Request $request){
 
         $request->validate([
             'Name' => 'required',

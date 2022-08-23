@@ -14,19 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->id('EmpID');
-            $table->text('Category');
-            $table->text('Employee Name');
-            $table->integer('Contact 1');
-            $table->integer('Contact 2');
-            $table->text('Employee Email');
-            $table->date('Emp DOB');
-            $table->text('Employee Adress');
-            $table->text('ACtive City');
-            $table->integer('Monthly Customer Target');
-            $table->integer('monthly books sale target');
-            $table->integer('Monthly sale target');
-            $table->smallInteger('Emp Password')->md5;
+            $table->id('empID');
+            $table->text('category');
+            $table->text('employee_name');
+            $table->integer('contact_1');
+            $table->integer('contact_2');
+            $table->text('emp_email');
+            $table->date('emp_DOB');
+            $table->text('Emp_adress');
+            $table->text('active_City');
+            $table->integer('monthly_customer_target');
+            $table->integer('monthly_books_sale_target');
+            $table->integer('monthly_sale_target');
+            $table->smallInteger('emp_password')->md5;
             $table->timestamps();
         });
     }

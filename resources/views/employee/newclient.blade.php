@@ -1,6 +1,7 @@
 
 @include('partials/header')
 
+
 <section class="New">
         <h1>NEW CLIENT</h1>
 
@@ -9,7 +10,7 @@
                 <input name="cname" type="text"> <br> <br>
 
                 <label class="Contact-lbl"> Contact: </label> 
-                <input name="contact" type="text"> <br> <br>
+                <input name="contact" type="number"> <br> <br>
 
                 <label class="referred_by"> Referred By: </label> 
                 <input name="refby" type="text"> <br> 
@@ -31,10 +32,10 @@
                 <input name="paid_food" type="text"> <br> <br>
 
                 <label class="discount-lbl"> Discount: </label>
-                <input name="discount" type ="text">  <br> <br> 
+                <input name="discount" type ="number">  <br> <br> 
 
                 <label class="payAmount-lbl"> Payable Amount: </label> 
-                <input name="payable_amount" type="text"> <br> <br>
+                <input name="payable_amount" type="number"> <br> <br>
               
                 <label class="paymethod-lbl"> Payement method: </label> 
                 <input name="payment_method" type="text"> <br> <br>

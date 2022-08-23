@@ -51,11 +51,11 @@
         </datalist>
         <br>
         <label for="Phone_Number">Admin Contact:</label>
-        <input type="text" name="Phone_Number" id="" value="{{old('Phone_Number')}}">
+        <input type="number" name="Phone_Number" id="" value="{{old('Phone_Number')}}">
         @error('Phone_Number')**{{$message}}@enderror
         <br>
         <label for="Email">Admin E-mail:</label>
-        <input type="text" name="Email" id="" value="{{old('Category')}}">
+        <input type="email" name="Email" id="" value="{{old('Category')}}">
         @error('Email')**{{$message}}@enderror
         <br>
         <label for="Password">Password:</label>
