@@ -26,7 +26,7 @@ return new class extends Migration
             $table->integer('monthly_customer_target');
             $table->integer('monthly_books_sale_target');
             $table->integer('monthly_sale_target');
-            $table->smallInteger('emp_password')->md5;
+            $table->string('emp_password');
             $table->timestamps();
         });
     }

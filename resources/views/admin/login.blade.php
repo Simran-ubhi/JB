@@ -14,7 +14,8 @@
         align-items: center;
     }
     #logbtn{
-            background-color: green;
+            background-color: blue;
+
             color: white;
             width: 6rem;
             height: 2rem;
@@ -28,17 +29,22 @@
     
 @include('partials/header')
 <div id="log-form">
-    <form action="">
+    <form action="{{ route('logging') }}" method="post">
+        <!-- @if(Session::get('Success'))
+        @endif -->
+        @csrf
     <h1>Admin Login</h1>
-      <label for="username">Username</label>
-        <input type="text" name="username" id="uname">
+        <label for="Name">Username</label>
+        <input type="text" name="Name" id="uname" value="{{ old('Name') }}">
+        @error('username')**{{$message}}@enderror
         <br>
         <br>
-        <label for="logpass"> Password:</label>
-        <input type="password" id="upass"> 
+        <label for="Password"> Password:</label>
+        <input type="password" name="Password" id="upass"> 
+        @error('password')**{{$message}}@enderror
         <br>
         <br>
-        <input type="submit" value="Login"id="logbtn">
+        <Button id="logbtn">Login</Button>
     </form>
 </div>
 </body>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Employees;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 
 class empController extends Controller
 {
@@ -26,7 +26,7 @@ class empController extends Controller
         $request->validate([
             'category' => 'required',
             'employee_name' => 'required',
-            'contact_1' => 'required|integer',
+            'contact_1' => 'required',
             'contact_2' => 'integer',
             'emp_email' => 'required|email',
             'emp_DOB' =>'required',
@@ -38,7 +38,7 @@ class empController extends Controller
             'emp_password' =>'required'
         ]);
 
-        $create = Employees::create($request->all());
+        $create=Employees::create($request->all());
         if($create){
             return view('employee.profile');
         } else {

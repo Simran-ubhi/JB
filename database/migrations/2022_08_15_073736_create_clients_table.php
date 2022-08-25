@@ -17,16 +17,15 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id('clientID');
             $table->string('cname');
-            $table->integer('contact');
-            $table->unsignedBigInteger('empID')->unsigned(); 
-            $table->foreign('empID')->references('empID')->on('employees'); 
-            $table->text('ticket');
-            $table->string('paid_ticket');
-            $table->string('paid_food');
-            $table->integer('discount');
-            $table->integer('payable_amount');
-            $table->string('payment_method');
-            $table->string('referrece_ID');
+            $table->string('contact');
+            $table->string('Referredby');
+            $table->string('ticket');
+            $table->string('paidticket');
+            $table->string('paidfood');
+            $table->string('discount');
+            $table->string('payableamount');
+            $table->string('paymentmethod');
+            $table->string('referreceID');
             $table->timestamps();
         });
     }

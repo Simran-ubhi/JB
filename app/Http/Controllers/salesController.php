@@ -8,12 +8,11 @@ use Illuminate\Http\Request;
 
 class salesController extends Controller
 {
-    public function newsale(){
+    public function newsaleform(){
         return view('employee.newSale');
     }
 
     public function addsale(Request $request){
-
         $request->validate([
         'name' => 'required',
         'contact_number' => 'required|integer',

@@ -27,7 +27,8 @@ Route::get('/', function () {
 Route::get('register',[AdminAuthController::class,'Admregister'])->name('register');
 Route::post('AdminCreate',[AdminAuthController::class,'Admcreate'])->name('create');
 Route::get('login', [AdminAuthController::class,'Admlogin'])->name('login');
-Route::get('adminDashboard',[AdminAuthController::class, 'Admdashboard'])->name('Dashboard');
+Route::any('logging',[AdminAuthController::class,'Adminlogin'])->name('logging');
+Route::get('adminDashboard',[AdminAuthController::class,'dashboard'])->name('Dashboard');
 
 
 // Employee CRUD
@@ -37,12 +38,13 @@ Route::get('emplog',[empController::class,'Elogin'])->name('Elogin');
 Route::get('profile',[empController::class,'profile'])->name('profile');
 
 //Sale CRUD
-Route::get('newsale',[salesController::class,'newsale'])->name('newSale');
+Route::get('newsaleform',[salesController::class,'newsaleform'])->name('newSale');
 Route::any('addsale',[salesController::class,'addsale'])->name('addsale');
 
 
 //client CRUD
 Route::get('addclient',[clientController::class,'clientform'])->name('addclient');
+Route::any('client',[clientController::class,'addclient'])->name('createclient');
 
 
 

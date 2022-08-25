@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('Name');            
             $table->text('Email');
             $table->integer('Phone_Number');
-            $table->text('Password')->md5;
+            $table->text('Password');
             $table->date('D_O_B');
             $table->text('Address');
             $table->timestamps();
