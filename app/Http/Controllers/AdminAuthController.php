@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class AdminAuthController extends Controller
 {
 
-   
+
     public function Admregister(){
         return view('admin.newAdmin');
     }
@@ -42,18 +42,21 @@ class AdminAuthController extends Controller
     }
 
     public function Adminlogin(Request $request){
-     
+
         $request->validate([
             'Name' => 'required',
             'Password' => 'required'
         ]);
         $admin = Admin::where('Name','=',$request->Name)->first();
+
         if(!$admin){
             return back()->with('fail','Invalid Credentials');
         }else{
                 if($request->Password == $admin->Password){
                     $request->session()->put('LoggedUSer',$admin->AdminID);
-                    return view('admin.dashboard');
+                    $data = array(['LoggedUserInfo'=>Admin::where('AdminID','=',1)->first()->toArray()]);
+                    $data = $data[0]["LoggedUserInfo"]["Name"];
+                    return view('admin.dashboard',compact('data'));
                 } else {
                     return back()->with('fail','Incorrect Password');
                 }
@@ -62,6 +65,7 @@ class AdminAuthController extends Controller
 
     public function dashboard(){
         $data = ['LoggedUserInfo'=>Admin::where('id','=',session('LoggedUser'))->first()];
-        return view('admin.dashboard',$data);
+        $a = 1;
+        return view('admin.dashboard',['a'=>$a]);
     }
 }
