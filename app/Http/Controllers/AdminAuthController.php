@@ -54,7 +54,7 @@ class AdminAuthController extends Controller
         }else{
                 if($request->Password == $admin->Password){
                     $request->session()->put('LoggedUSer',$admin->AdminID);
-                    $data = array(['LoggedUserInfo'=>Admin::where('AdminID','=',1)->first()->toArray()]);
+                    $data = array(['LoggedUserInfo'=>Admin::where('AdminID','=',$admin["AdminID"])->first()->toArray()]);
                     $data = $data[0]["LoggedUserInfo"]["Name"];
                     return view('admin.dashboard',compact('data'));
                 } else {
