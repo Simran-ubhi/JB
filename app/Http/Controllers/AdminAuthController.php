@@ -10,15 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class AdminAuthController extends Controller
 {
 
-    public function dashboard(){
-        return view('admin.dashboard');
-    }
-
-    
+   
     public function Admregister(){
         return view('admin.newAdmin');
     }
-
 
     public function Admcreate(Request $request){
 
@@ -47,23 +42,26 @@ class AdminAuthController extends Controller
     }
 
     public function Adminlogin(Request $request){
+     
         $request->validate([
             'Name' => 'required',
             'Password' => 'required'
         ]);
-        $admin = Admin::where('Name', '=' , $request->Name)->first();
-        if($admin){
-            if($request->Password == $admin->Password){
-                $request->session()->put('loginID',$admin->AdminID);
-                return redirect('admin.dashboard');
-            } else {
-                return back()->with('fail','Incorrect Passowrd');
+        $admin = Admin::where('Name','=',$request->Name)->first();
+        if(!$admin){
+            return back()->with('fail','Invalid Credentials');
+        }else{
+                if($request->Password == $admin->Password){
+                    $request->session()->put('LoggedUSer',$admin->AdminID);
+                    return view('admin.dashboard');
+                } else {
+                    return back()->with('fail','Incorrect Password');
+                }
             }
-        } else {
-            return back()->with('fail','Invalid username');
-        }
-        return view('admin.dashboard');
     }
 
-    
+    public function dashboard(){
+        $data = ['LoggedUserInfo'=>Admin::where('id','=',session('LoggedUser'))->first()];
+        return view('admin.dashboard',$data);
+    }
 }
