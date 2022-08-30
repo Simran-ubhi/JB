@@ -16,13 +16,25 @@
 
 @include('../partials/header')
 <div id="log-form">
-    <form action="">
+    <form action=" {{ route('emplogin') }} ">
+
+    @if(Session::get('Success'))
+        <p style="background-color:lightgreen; padding:10px">{{Session::get('Success')}}</p>
+    @endif
+
+    @if(Session::get('fail'))
+        <p style="background-color:red; padding:10px">{{Session::get('fail')}}</p>
+    @endif
+    @csrf
+       
     <h1>Employee Login</h1>
         <label for="number">Phone number: </label>
-        <input type="text" name="number" id="unumber">
+        <input name="number" type="text" name="number" id="unumber" value="{{ old('number') }}">
+        @error('number')**{{$message}}@enderror
         <br>
         <label for="logpin">Pin:</label>
-        <input type="password" id="upass"> 
+        <input name="logpin" type="password" id="upass"> 
+        @error('Nalogpinme')**{{$message}}@enderror
         <br>
         <br>
         <input type="submit" value="Login"id="logbtn">

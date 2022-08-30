@@ -36,7 +36,7 @@
 
 @include('partials/header')
 
-<h1 id="hh" style="text-align:center;">Hello, Employee!</h1>
+<h1 id="hh" style="text-align:center;">Hello, {{ $empData }}</h1>
 <section>
     <div class="emp-dashboard">
         <h3>Your Dashboard</h3>

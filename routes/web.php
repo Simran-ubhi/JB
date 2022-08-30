@@ -29,6 +29,7 @@ Route::post('AdminCreate',[AdminAuthController::class,'Admcreate'])->name('creat
 Route::get('login', [AdminAuthController::class,'Admlogin'])->name('login');
 Route::any('logging',[AdminAuthController::class,'Adminlogin'])->name('logging');
 Route::get('adminDashboard',[AdminAuthController::class,'dashboard'])->name('Dashboard');
+Route::get('logout',[AdminAuthController::class,'logout'])->name('logout');
 
 
 // Employee CRUD
@@ -36,6 +37,7 @@ Route::get('newEmp',[empController::class,'Eregister'])->name('Eregister');
 Route::any('EmployeeCreate',[empController::class,'create'])->name('Ecreate');
 Route::get('emplog',[empController::class,'Elogin'])->name('Elogin');
 Route::get('profile',[empController::class,'profile'])->name('profile');
+Route::any('empLogin',[empController::class,'empLogin'])->name('emplogin');
 
 //Sale CRUD
 Route::get('newsaleform',[salesController::class,'newsaleform'])->name('newSale');

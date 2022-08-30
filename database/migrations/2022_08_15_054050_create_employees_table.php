@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 return new class extends Migration
 {
@@ -17,7 +18,7 @@ return new class extends Migration
             $table->id('empID');
             $table->text('category');
             $table->text('employee_name');
-            $table->integer('contact_1');
+            $table->integer('contact_1')->unique();
             $table->integer('contact_2');
             $table->text('emp_email');
             $table->date('emp_DOB');

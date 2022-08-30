@@ -17,9 +17,7 @@ class empController extends Controller
         return view('employee.empLogin');
     }
 
-    public function profile(){
-        return view('employee.profile');
-    }
+   
 
     public function create(Request $request){
 
@@ -40,10 +38,48 @@ class empController extends Controller
 
         $create=Employees::create($request->all());
         if($create){
-            return view('employee.profile');
+            return back()->with('Success','Employee registered');
         } else {
             return back()->with('Fail','Something went wrong');
         }
     }
+
+
+
+    public function empLogin(Request $request){
+        $request->validate([
+            'number' => 'required',
+            'logpin' => 'required'
+        ]);
+        $emp = Employees::where('contact_1','=',$request->number)->first();
+        if(!$emp){
+            return back()->with('fail','Invalid number');
+        } else {
+        if($request->logpin == $emp->emp_password){
+            $request->session()->put('LoggedEmp', $emp->empID);
+            $empData = array(['LoggedEmp' =>Employees::where('empID','=',$emp['empID'])->first()->toArray()]);
+            $empData = $empData[0]['LoggedEmp']['contact_1'];
+            return view('employee.profile',compact('empData'));
+        } else {
+            return back()->with('fail','Incorrect Pin');
+        }
+    }
+    }
+
+    public function logout(){
+        if(session()->has('LoggedEmp')){
+            session()->pull('LoggedEmp');
+        }
+        return view('welcome');
+    }
+
+
+    public function profile(){
+        $empData = ['LoggedEmp'=>Employees::where('empID','=',session('LoggedEmp'))->first()];
+        $a = 1;
+        return view('employee.profile',['a'=>$a]);
+    }
 }
+
+
 

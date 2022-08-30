@@ -29,7 +29,7 @@ class AdminAuthController extends Controller
 
         $create = Admin::create($request->all());
         if($create){
-            return view('admin.dashboard');
+            return view('admin.login');
         } else {
             return back()->with('Fail','Something went wrong');
         }
@@ -61,6 +61,13 @@ class AdminAuthController extends Controller
                     return back()->with('fail','Incorrect Password');
                 }
             }
+    }
+
+    public function logout(){
+        if(session()->has('LoggedUser')){
+            session()->pull('LoggedUSer');
+        }
+        return view('welcome');
     }
 
     public function dashboard(){
