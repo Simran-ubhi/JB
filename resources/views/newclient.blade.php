@@ -18,9 +18,9 @@
                 <input name="cname" type="text" value="{{old('cname')}}"> <br>
                 @error('cname')**{{$message}}@enderror <br>
 
-                <label for="contact" class="Contact-lbl"> Contact: </label> 
-                <input name="contact" type="text" value="{{old('contact')}}"> <br>
-                @error('contact')**{{$message}}@enderror <br>
+                <label for="pnumber" class="Contact-lbl"> Contact: </label> 
+                <input name="pnumber" type="text" value="{{old('pnumber')}}"> <br>
+                @error('pnumber')**{{$message}}@enderror <br>
 
                 <label for="Referredby" class="referred_by">Referred by: </label> 
                 <input name="Referredby" type="text" value="{{old('empID')}}"> <br> 

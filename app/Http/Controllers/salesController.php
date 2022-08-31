@@ -15,7 +15,7 @@ class salesController extends Controller
     public function addsale(Request $request){
         $request->validate([
         'name' => 'required',
-        'contact_number' => 'required|integer',
+        'pnumber' => 'required|integer',
         'vouchers' => 'required',
         'cost' => 'required',
         'discount' => 'required',

@@ -53,7 +53,7 @@ class AdminAuthController extends Controller
             return back()->with('fail','Invalid Credentials');
         }else{
                 if($request->Password == $admin->Password){
-                    $request->session()->put('LoggedUSer',$admin->AdminID);
+                    $request->session()->put('LoggedUser',$admin->AdminID);
                     $data = array(['LoggedUserInfo'=>Admin::where('AdminID','=',$admin["AdminID"])->first()->toArray()]);
                     $data = $data[0]["LoggedUserInfo"]["Name"];
                     return view('admin.dashboard',compact('data'));
@@ -65,7 +65,7 @@ class AdminAuthController extends Controller
 
     public function logout(){
         if(session()->has('LoggedUser')){
-            session()->pull('LoggedUSer');
+            session()->pull('LoggedUser');
         }
         return view('welcome');
     }

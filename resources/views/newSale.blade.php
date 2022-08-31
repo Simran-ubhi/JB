@@ -18,9 +18,9 @@
         <input type="text" name="name" value="{{old('name')}}">
         @error('Name')**{{$message}}@enderror
         <br>
-        <label for="contact_number">Number: </label>
-        <input type="text" name="contact_number" value="{{old('contact_number')}}">
-        @error('contact_number')**{{$message}}@enderror
+        <label for="pnumber">Number: </label>
+        <input type="text" name="pnumber" value="{{old('pnumber')}}">
+        @error('pnumber')**{{$message}}@enderror
         <br>
         <label for="vouchers">Vouchers: </label>
         <input type="text" name="vouchers" value="{{old('vouchers')}}">

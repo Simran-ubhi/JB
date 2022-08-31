@@ -4,6 +4,7 @@ use App\Models\Employees;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 return new class extends Migration
 {
@@ -17,7 +18,7 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id('clientID');
             $table->string('cname');
-            $table->string('contact');
+            $table->string('pnumber')->unique();
             $table->string('Referredby');
             $table->string('ticket');
             $table->string('paidticket');

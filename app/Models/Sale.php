@@ -12,7 +12,7 @@ class Sale extends Model
     public $timestamps = false;
     protected $fillable = [
         'name',
-        'contact_number',
+        'pnumber',
         'vouchers',
         'cost',
         'discount',

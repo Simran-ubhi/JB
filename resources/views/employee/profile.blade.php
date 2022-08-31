@@ -37,6 +37,7 @@
 @include('partials/header')
 
 <h1 id="hh" style="text-align:center;">Hello, {{ $empData }}</h1>
+<h2><a href="{{ route('elogout') }}">logout</a></h2>
 <section>
     <div class="emp-dashboard">
         <h3>Your Dashboard</h3>

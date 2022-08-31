@@ -66,7 +66,7 @@ class empController extends Controller
     }
     }
 
-    public function logout(){
+    public function elogout(){
         if(session()->has('LoggedEmp')){
             session()->pull('LoggedEmp');
         }

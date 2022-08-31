@@ -13,7 +13,7 @@ class Clients extends Model
     public $timestamps = false;
     protected $fillable = [
         'cname',
-        'contact',
+        'pnumber',
         'referred_by',
         'ticket',
         'paid_ticket',

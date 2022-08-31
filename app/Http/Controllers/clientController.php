@@ -15,7 +15,7 @@ class clientController extends Controller
     public function addclient(Request $request){
         $request->validate([
         'cname' => 'required',
-        'contact' => 'required',
+        'pnumber' => 'required',
         'Referredby' => 'required',
         'ticket' => 'required',
         'paidticket' => 'required',

@@ -5,7 +5,9 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\clientController;
 use App\Http\Controllers\empController;
 use App\Http\Controllers\salesController;
+use App\Http\Controllers\SearchController;
 use App\Models\Admin;
+use GuzzleHttp\Middleware;
 use Illuminate\Auth\Events\Login;
 
 /*
@@ -19,25 +21,34 @@ use Illuminate\Auth\Events\Login;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[SearchController::class,'home'])->name('home');
+Route::any('numsearch',[SearchController::class,'search'])->name('numsearch');
+
 
 // Admin CRUD
-Route::get('register',[AdminAuthController::class,'Admregister'])->name('register');
-Route::post('AdminCreate',[AdminAuthController::class,'Admcreate'])->name('create');
+
+
 Route::get('login', [AdminAuthController::class,'Admlogin'])->name('login');
 Route::any('logging',[AdminAuthController::class,'Adminlogin'])->name('logging');
-Route::get('adminDashboard',[AdminAuthController::class,'dashboard'])->name('Dashboard');
 Route::get('logout',[AdminAuthController::class,'logout'])->name('logout');
 
 
+Route::group(['Middleware'=> ['adminauth]']], function(){
+    Route::get('register',[AdminAuthController::class,'Admregister'])->name('register');
+    Route::post('AdminCreate',[AdminAuthController::class,'Admcreate'])->name('create');
+    Route::get('adminDashboard',[AdminAuthController::class,'dashboard'])->name('Dashboard');
+    Route::get('newEmp',[empController::class,'Eregister'])->name('Eregister');
+    Route::any('EmployeeCreate',[empController::class,'create'])->name('Ecreate');
+});
+
+
 // Employee CRUD
-Route::get('newEmp',[empController::class,'Eregister'])->name('Eregister');
-Route::any('EmployeeCreate',[empController::class,'create'])->name('Ecreate');
+
+
 Route::get('emplog',[empController::class,'Elogin'])->name('Elogin');
 Route::get('profile',[empController::class,'profile'])->name('profile');
 Route::any('empLogin',[empController::class,'empLogin'])->name('emplogin');
+Route::get('elogout',[empController::class,'elogout'])->name('elogout');
 
 //Sale CRUD
 Route::get('newsaleform',[salesController::class,'newsaleform'])->name('newSale');
