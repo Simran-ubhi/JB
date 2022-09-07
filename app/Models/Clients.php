@@ -10,17 +10,11 @@ class Clients extends Model
     use HasFactory;
 
     protected $table = 'clients';
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'cname',
         'pnumber',
-        'referred_by',
-        'ticket',
-        'paid_ticket',
-        'paid_food',
-        'discount',
-        'payable_amount',
-        'payment_method',
-        'referrece_ID'
+        'City',
+        'Referredby',
     ];
 }

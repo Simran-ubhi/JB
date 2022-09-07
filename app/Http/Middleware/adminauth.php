@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class adminauth
 {
@@ -16,6 +17,9 @@ class adminauth
      */
     public function handle(Request $request, Closure $next)
     {
+        if(Auth::check()){
+
+        }
        if(!session()->has('loggedUser') && ($request->path() != 'admin/login' && $request-> path)) {
         return redirect('admin/login')->with('fail','You must login as an Admin');
        }
@@ -24,4 +28,6 @@ class adminauth
         return back();
        }
     }
+
 }
+

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class salesController extends Controller
 {
     public function newsaleform(){
-        return view('employee.newSale');
+        return view('newSale');
     }
 
     public function addsale(Request $request){

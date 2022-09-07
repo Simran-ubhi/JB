@@ -3,6 +3,10 @@ body{
     padding: 0px;
     font-family: sans-serif;
 }
+
+
+/* _________________________HEADER___________________________ */
+
 header{
     display: float;
     background-color: rgb(255, 187, 0);
@@ -27,6 +31,11 @@ header button a{
 header h1{
     font-size: 2.5em;
 }
+
+
+
+
+
 .search-form{
     display: flex;
     align-items: center;
@@ -102,4 +111,160 @@ label{
 }
 input{
     margin: 0.5rem;
+}
+
+
+
+.client-list-box{
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.client-list-box .clients {
+    padding: 1%;
+    width: 80%;
+}
+
+.client-list-box table{
+    width: 100%;
+}
+
+.client-list-box table td{
+    padding: 20px;
+    margin: 10px;
+}
+
+/* _______________________________employee profile _---------------------------------------- */
+
+.emp-dashboard{
+    padding: 10px;
+    background-color: rgba(168, 145, 68, 0.377);
+    align-items: center;
+    justify-content: center;
+}
+.emp-dashboard table{
+    margin: auto;
+    border: 2px solid;
+    padding:3%;
+    width: 80%;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+.emp-dashboard  table tr{
+    text-align: center;
+    margin: 3%;
+}
+.emp-actions{
+    display: flex; 
+    padding:0px;
+    margin: 10px;
+}
+.emp-actions button{
+    border-radius: 30px;
+    width: 22%;
+    margin: 10px 2%;
+    height: 3rem;
+    background-color: lightblue;
+    
+    font-size: 1.2rem ;
+}
+
+
+
+/* ______________________________Admin Dashboard_________________________________ */
+
+
+.admin-dashboard{
+    padding: 10px;
+    background-color: rgba(168, 145, 68, 0.377);
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 5rem;
+}
+.admin-dashboard table{
+    margin: auto;
+    border: 2px solid;
+    padding:3%;
+    width: 80%;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+.admin-dashboard{
+    display: flex; 
+    padding:0px;
+    margin: 10px;
+}
+.admin-dashboard button{
+    border-radius: 30px;
+    width: 33%;
+    margin: 10px 2%;
+    height: 3rem;
+    background-color: lightblue;
+    
+    font-size: 1.2rem ;
+}
+
+
+
+
+/* __________________  Clients Table  ____________________ */
+
+.clients-table-box{
+    display: flex;
+    max-width:100%;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+   
+}
+
+.clients-table-box table{
+    padding: 2.5rem;
+    text-align: center;
+    background-color: rgba(181, 166, 128, 0.357);
+    width: 80%;
+}
+
+.clients-table-box table tr th{
+    font-size: 1.6em;
+}
+
+
+.clients-table-box table td{
+    margin: 3%;
+    padding: 3%;
+}
+
+.log-wrapper{
+    margin: auto;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10%;
+}
+
+.log-wrapper .log-container .log-buttonA{
+    background-color: rgb(103, 186, 121);
+    margin: 1rem;
+    font-size: 1rem;
+    width: 12rem;
+    height: 3rem;
+    border: 0ch;
+}
+.log-wrapper .log-container .log-buttonE{
+    background-color: rgb(0, 191, 255);
+    margin: 1rem;
+    font-size: 1rem;
+    width: 12rem;
+    height: 3rem;
+    border: 0ch;
+}
+
+.log-wrapper .log-container a{
+    text-decoration: none;
+    color:black;
 }

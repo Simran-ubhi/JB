@@ -54,9 +54,10 @@ class AdminAuthController extends Controller
         }else{
                 if($request->Password == $admin->Password){
                     $request->session()->put('LoggedUser',$admin->AdminID);
-                    $data = array(['LoggedUserInfo'=>Admin::where('AdminID','=',$admin["AdminID"])->first()->toArray()]);
-                    $data = $data[0]["LoggedUserInfo"]["Name"];
-                    return view('admin.dashboard',compact('data'));
+                    return redirect()->route('Dashboard');
+                    // $data = array(['LoggedUserInfo'=>Admin::where('AdminID','=',$admin["AdminID"])->first()->toArray()]);
+                    // $data = $data[0]["LoggedUserInfo"]["Name"];
+                    // return view('admin.dashboard',compact('data'));
                 } else {
                     return back()->with('fail','Incorrect Password');
                 }
@@ -71,8 +72,12 @@ class AdminAuthController extends Controller
     }
 
     public function dashboard(){
-        $data = ['LoggedUserInfo'=>Admin::where('id','=',session('LoggedUser'))->first()];
-        $a = 1;
-        return view('admin.dashboard',['a'=>$a]);
+        $data = Admin::where('AdminID','=',session('LoggedUser'))->first();
+        if($data){
+            return view('admin.dashboard',['info'=>$data]);
+        } else {
+            return redirect('/');
+        }
+        
     }
 }

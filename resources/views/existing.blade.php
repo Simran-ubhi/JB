@@ -1,10 +1,10 @@
 
 @include('partials/header')
-
+<h2></h2>
 <section class = "existing">
-        <h3 class="cust_id"> Customer ID: 102 </h3>
-        <h3 class="name"> Dilsher Singh </h3>
-        <h3 class="contact"> 9876543215 </h3>
+        <h3 class="cust_id"> Client ID: {{ $res['clientID'] }} </h3>
+        <h3 class="name"> Name: {{ $res['cname'] }} </h3>
+        <h3 class="contact"> Number: {{ $res['pnumber'] }} </h3>
         
             <form class = "form-existing" action="">
                 <label class="Ticket-lbl"> Ticket: </label> 
@@ -26,10 +26,10 @@
                 <label class="payAmount-lbl"> Payable Amount: </label> 
                 <input name="payAmount" type="text"> <br> <br>
               
-                <label class="paymethod-lbl"> Payement method: </label> 
+                <label class="paymethod-lbl"> Payment method: </label> 
                 <input name="paymethod" type="text"> <br> <br>
 
-                <label class="referrence-lbl"> Refference ID: </label> 
+                <label class="referrence-lbl"> Referrence ID: </label> 
                 <input name="referrence" type="text"> <br> <br>
              </form>  
             <hr>

@@ -9,7 +9,19 @@
 
 
        <h1> ClubJB Client Lookup </h1>
+       <button>
+        <a href="{{ route('register') }}">Add Admin</a>
+       </button>
+       @if((Session::has('LoggedUser')) || (Session::has('LoggedEmp')))
+       <Button>
+            <a href="{{ route('addclient') }}">Add Client</a>
+        </Button>
+        <Button>
+            <a href="{{ route('newSale') }}">Add Sale</a>
+        </Button>
        <div class= "auth">
+       @endif
+       
        @if(Session::has('LoggedUser'))
        <button>
         <a href="{{ route('logout') }}">| logout |</a>
@@ -21,16 +33,19 @@
         </div>
        @endif
 
-
+        
        @if(Session::has('LoggedUser'))
        <button>
-        <a href="{{ route('register') }}">Add Admin</a>
-       </button>
+       <a href="{{ route('Dashboard') }}">Dashboard</a>
+        </button>
 
        <button >
         <a href="{{ route('Eregister') }}">Register New Employee</a>
       </button>
        @elseif(!Session::has('LoggedEmp'))
+       
+       
+
        <button>
        <a href="{{ route('login') }}">Admin Login</a>
         </button>

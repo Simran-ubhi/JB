@@ -9,7 +9,7 @@ class Sale extends Model
 {
     use HasFactory;
     protected $table = 'sales';
-    public $timestamps = false;
+    public $timestamps = true;
     protected $fillable = [
         'name',
         'pnumber',

@@ -19,14 +19,8 @@ return new class extends Migration
             $table->id('clientID');
             $table->string('cname');
             $table->string('pnumber')->unique();
+            $table->string('City');
             $table->string('Referredby');
-            $table->string('ticket');
-            $table->string('paidticket');
-            $table->string('paidfood');
-            $table->string('discount');
-            $table->string('payableamount');
-            $table->string('paymentmethod');
-            $table->string('referreceID');
             $table->timestamps();
         });
     }

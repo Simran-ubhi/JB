@@ -2,11 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\clientController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\empController;
 use App\Http\Controllers\salesController;
 use App\Http\Controllers\SearchController;
 use App\Models\Admin;
+use App\Models\Clients;
 use GuzzleHttp\Middleware;
 use Illuminate\Auth\Events\Login;
 
@@ -33,7 +34,7 @@ Route::any('logging',[AdminAuthController::class,'Adminlogin'])->name('logging')
 Route::get('logout',[AdminAuthController::class,'logout'])->name('logout');
 
 
-Route::group(['Middleware'=> ['adminauth]']], function(){
+Route::group(['Middleware'=> ['auth','adminauth']], function(){
     Route::get('register',[AdminAuthController::class,'Admregister'])->name('register');
     Route::post('AdminCreate',[AdminAuthController::class,'Admcreate'])->name('create');
     Route::get('adminDashboard',[AdminAuthController::class,'dashboard'])->name('Dashboard');
@@ -49,6 +50,7 @@ Route::get('emplog',[empController::class,'Elogin'])->name('Elogin');
 Route::get('profile',[empController::class,'profile'])->name('profile');
 Route::any('empLogin',[empController::class,'empLogin'])->name('emplogin');
 Route::get('elogout',[empController::class,'elogout'])->name('elogout');
+Route::get('employeelist',[empController::class,'employeeslist'])->name('employeeslist');
 
 //Sale CRUD
 Route::get('newsaleform',[salesController::class,'newsaleform'])->name('newSale');
@@ -61,7 +63,7 @@ Route::any('client',[clientController::class,'addclient'])->name('createclient')
 
 
 
-Route::get('/existing.blade.php', function () {
-    return view('existing');
-});
+Route::get('existing', [SearchController::class, 'search'])->name('existing');
 
+
+Route::get('clients',[clientController::class,'clientsindex'])->name('clientsindex');

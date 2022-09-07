@@ -9,7 +9,6 @@ class Employees extends Model
 {
     use HasFactory;
     protected $table = 'employees';
-    protected $primaryKey = 'employee_name';
     public $timestamps = false;
     protected $fillable = [
         'category',

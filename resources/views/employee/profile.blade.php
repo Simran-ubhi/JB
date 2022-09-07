@@ -1,43 +1,9 @@
-<style>
-    .emp-dashboard{
-        padding: 10px;
-        background-color: rgba(168, 145, 68, 0.377);
-        align-items: center;
-        justify-content: center;
-    }
-    table{
-        margin: auto;
-        border: 2px solid;
-        padding:3%;
-        width: 80%;
-        display: grid;
-        justify-content: center;
-        text-align: center;
-    }
-    table tr{
-        text-align: center;
-        margin: 3%;
-    }
-    .emp-actions{
-        display: flex;
-        padding:0px;
-        margin: 10px;
-    }
-    .emp-actions button{
-        border-radius: 30px;
-        width: 22%;
-        margin: 10px 2%;
-        height: 3rem;
-        background-color: lightblue;
-        
-        font-size: 1.2rem ;
-    }
-</style>
+
 
 @include('partials/header')
 
-<h1 id="hh" style="text-align:center;">Hello, {{ $empData }}</h1>
-<h2><a href="{{ route('elogout') }}">logout</a></h2>
+<h1 id="hh" style="text-align:center;">Hello, {{ $empinfo['employee_name'] }}</h1>
+
 <section>
     <div class="emp-dashboard">
         <h3>Your Dashboard</h3>

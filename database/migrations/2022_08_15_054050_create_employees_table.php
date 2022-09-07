@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id('empID');
             $table->text('category');
             $table->text('employee_name');
-            $table->integer('contact_1')->unique();
+            $table->biginteger('contact_1')->unique();
             $table->integer('contact_2');
             $table->text('emp_email');
             $table->date('emp_DOB');

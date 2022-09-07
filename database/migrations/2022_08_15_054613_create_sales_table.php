@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id('saleID');
             $table->text('name');
-            $table->integer('pnumber')->unique();
+            $table->bigInteger('pnumber');
             $table->string('vouchers');
             $table->integer('cost');
             $table->integer('discount');

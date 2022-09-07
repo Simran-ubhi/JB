@@ -55,11 +55,12 @@ class empController extends Controller
         if(!$emp){
             return back()->with('fail','Invalid number');
         } else {
-        if($request->logpin == $emp->emp_password){
-            $request->session()->put('LoggedEmp', $emp->empID);
-            $empData = array(['LoggedEmp' =>Employees::where('empID','=',$emp['empID'])->first()->toArray()]);
-            $empData = $empData[0]['LoggedEmp']['contact_1'];
-            return view('employee.profile',compact('empData'));
+            if($request->logpin == $emp->emp_password){
+                $request->session()->put('LoggedEmp', $emp->empID);
+                return redirect()->route('profile');
+                // $empData = array(['LoggedEmp' =>Employees::where('empID','=',$emp['empID'])->first()->toArray()]);
+                // $empData = $empData[0]['LoggedEmp']['contact_1'];
+                // return view('employee.profile',compact('empData'));
         } else {
             return back()->with('fail','Incorrect Pin');
         }
@@ -75,9 +76,17 @@ class empController extends Controller
 
 
     public function profile(){
-        $empData = ['LoggedEmp'=>Employees::where('empID','=',session('LoggedEmp'))->first()];
-        $a = 1;
-        return view('employee.profile',['a'=>$a]);
+        $empData = Employees::where('empID','=',session('LoggedEmp'))->first();
+        if($empData){
+            return view('employee.profile',['empinfo'=>$empData]);
+        } else {
+            return redirect('/');
+        }
+    }
+
+    public function employeeslist(){
+        $data = Employees::all();
+        return view('employees',['employees' => $data]);
     }
 }
 
